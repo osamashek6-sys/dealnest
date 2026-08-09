@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="de" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Osamixo – Produkte, Angebote und Deals verschiedener Online-Shops übersichtlich entdecken.">
+  <meta name="theme-color" content="#11152a">
+  <title>Osamixo – Angebote entdecken</title>
+  <style>
+    :root{
+      --ink:#14182b;--muted:#687087;--line:#e8eaf1;--bg:#f7f8fc;--card:#fff;
+      --purple:#5b4cf0;--purple2:#7665ff;--dark:#11152a;--soft:#efedff;
+      --shadow:0 12px 35px rgba(20,24,43,.08);--radius:22px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}
+    button,input{font:inherit}
+    a{text-decoration:none;color:inherit}
+    .wrap{width:min(1180px,calc(100% - 32px));margin:auto}
+    .topbar{background:var(--dark);color:#fff;font-size:13px}
+    .topbar .wrap{display:flex;justify-content:center;padding:9px 0;opacity:.95}
+    header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+    .nav{min-height:74px;display:flex;align-items:center;gap:24px}
+    .logo{font-size:30px;font-weight:900;letter-spacing:-1.5px}
+    .logo span{color:var(--purple)}
+    .navlinks{display:flex;gap:22px;align-items:center;margin-left:auto}
+    .navlinks a{font-weight:700;color:#34394e;font-size:14px}
+    .lang{border:1px solid var(--line);background:#fff;border-radius:13px;padding:10px 12px;font-weight:700;color:#34394e}
+    .hero{padding:58px 0 34px}
+    .heroBox{background:radial-gradient(circle at 80% 20%,#7665ff 0,#40359b 34%,#11152a 78%);color:#fff;border-radius:30px;padding:54px;position:relative;overflow:hidden;box-shadow:var(--shadow)}
+    .heroBox:after{content:"";position:absolute;width:480px;height:480px;border-radius:50%;background:rgba(255,255,255,.06);right:-150px;bottom:-260px}
+    .eyebrow{display:inline-flex;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);padding:8px 13px;border-radius:999px;font-weight:800;font-size:13px}
+    h1{font-size:clamp(36px,6vw,64px);line-height:1.04;letter-spacing:-2.5px;max-width:760px;margin:18px 0 16px}
+    .hero p{font-size:18px;max-width:700px;color:#e6e7f4;margin:0 0 28px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;justify-content:center;border-radius:14px;padding:13px 18px;font-weight:850;border:1px solid transparent;cursor:pointer}
+    .btn.primary{background:#fff;color:var(--dark)}
+    .btn.secondary{border-color:rgba(255,255,255,.28);color:#fff;background:rgba(255,255,255,.08)}
+    section{padding:32px 0}
+    .sectionHead{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:18px}
+    .sectionHead h2{margin:0;font-size:28px;letter-spacing:-.8px}
+    .sectionHead p{margin:4px 0 0;color:var(--muted)}
+    .search{display:flex;gap:10px;margin:0 0 30px}
+    .search input{width:100%;border:1px solid var(--line);background:#fff;border-radius:16px;padding:16px 18px;outline:none;box-shadow:0 5px 18px rgba(20,24,43,.04)}
+    .search input:focus{border-color:#b6afff;box-shadow:0 0 0 4px #eeecff}
+    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .cat{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;min-height:118px;box-shadow:0 7px 22px rgba(20,24,43,.04);transition:.2s}
+    .cat:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+    .catIcon{font-size:28px;margin-bottom:12px}.cat strong{display:block}.cat small{color:var(--muted)}
+    .products{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .product{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 7px 22px rgba(20,24,43,.04)}
+    .productImg{height:190px;background:linear-gradient(135deg,#f1efff,#fafaff);display:flex;align-items:center;justify-content:center;font-size:58px}
+    .productBody{padding:17px}.badge{display:inline-block;background:var(--soft);color:#4b3ee0;padding:5px 8px;border-radius:8px;font-size:11px;font-weight:900}
+    .product h3{font-size:16px;margin:10px 0 6px}.product p{color:var(--muted);font-size:13px;margin:0 0 14px}
+    .productBottom{display:flex;justify-content:space-between;align-items:center;gap:8px}
+    .price{font-weight:900;font-size:18px}.buy{background:var(--dark);color:#fff;border:0;border-radius:11px;padding:10px 12px;font-weight:800;cursor:pointer}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .step{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px}.num{width:38px;height:38px;border-radius:12px;background:var(--soft);color:#4b3ee0;display:grid;place-items:center;font-weight:900;margin-bottom:15px}
+    .step h3{margin:0 0 7px}.step p{margin:0;color:var(--muted)}
+    .trust{background:#fff;border:1px solid var(--line);border-radius:24px;padding:28px;display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:center}
+    .trust p{color:var(--muted);margin-bottom:0}
+    .notice{background:#f4f2ff;border:1px solid #dedaff;color:#39336f;padding:16px;border-radius:14px;font-size:13px}
+    footer{margin-top:36px;background:var(--dark);color:#fff;padding:40px 0}
+    .footerGrid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px}.footerGrid p{color:#b9bdd0}.footerGrid a{display:block;color:#dce0ed;margin:7px 0;font-size:14px}
+    .copy{border-top:1px solid rgba(255,255,255,.12);margin-top:25px;padding-top:18px;color:#9da3ba;font-size:13px}
+    .hidden{display:none!important}
+    [dir="rtl"] body{text-align:right}
+    [dir="rtl"] .navlinks{margin-left:0;margin-right:auto}
+    [dir="rtl"] .heroBox:after{right:auto;left:-150px}
+    @media(max-width:900px){
+      .grid,.products{grid-template-columns:repeat(2,1fr)}
+      .steps{grid-template-columns:1fr}
+      .trust{grid-template-columns:1fr}
+      .navlinks a{display:none}
+    }
+    @media(max-width:600px){
+      .wrap{width:min(100% - 20px,1180px)}
+      .nav{min-height:66px;gap:10px}.logo{font-size:25px}.lang{padding:8px 9px}
+      .hero{padding:20px 0}.heroBox{padding:28px 22px;border-radius:24px}
+      h1{font-size:39px;letter-spacing:-1.6px}.hero p{font-size:16px}
+      .grid,.products{grid-template-columns:1fr 1fr;gap:10px}.cat{padding:15px;min-height:105px}
+      .productImg{height:150px}.productBody{padding:13px}.product h3{font-size:14px}
+      .sectionHead h2{font-size:23px}.footerGrid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar"><div class="wrap" data-i18n="top">Ausgewählte Produkte · Angebote verschiedener Shops · Einfach entdecken</div></div>
+
+  <header>
+    <div class="wrap nav">
+      <a class="logo" href="#">Osami<span>xo</span></a>
+      <nav class="navlinks">
+        <a href="#deals" data-i18n="navDeals">Angebote</a>
+        <a href="#categories" data-i18n="navCategories">Kategorien</a>
+        <a href="#how" data-i18n="navHow">So funktioniert es</a>
+      </nav>
+      <select class="lang" id="language" aria-label="Language">
+        <option value="de">🇩🇪 Deutsch</option>
+        <option value="en">🇬🇧 English</option>
+        <option value="ar">🇸🇦 العربية</option>
+      </select>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <section class="hero">
+        <div class="heroBox">
+          <div class="eyebrow">🔥 <span data-i18n="eyebrow">Auswahl der Woche</span></div>
+          <h1 data-i18n="heroTitle">Entdecke Produkte, die sich lohnen.</h1>
+          <p data-i18n="heroText">Finde interessante Produkte, Angebote und Deals verschiedener Online-Shops – übersichtlich an einem Ort.</p>
+          <div class="actions">
+            <a class="btn primary" href="#deals" data-i18n="heroBtn">Angebote entdecken</a>
+            <a class="btn secondary" href="#how" data-i18n="howBtn">So funktioniert es</a>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="search">
+          <input id="search" type="search" data-placeholder="search" placeholder="Produkte oder Kategorien suchen…">
+        </div>
+      </section>
+
+      <section id="categories">
+        <div class="sectionHead">
+          <div><h2 data-i18n="catTitle">Kategorien</h2><p data-i18n="catSub">Schnell zum Bereich, der dich interessiert.</p></div>
+        </div>
+        <div class="grid">
+          <a class="cat" href="#deals" data-category="Elektronik"><div class="catIcon">💻</div><strong data-i18n="c1">Elektronik</strong><small data-i18n="c1s">Technik & Zubehör</small></a>
+          <a class="cat" href="#deals" data-category="Home"><div class="catIcon">🏠</div><strong data-i18n="c2">Wohnen</strong><small data-i18n="c2s">Praktisches für Zuhause</small></a>
+          <a class="cat" href="#deals" data-category="Mode"><div class="catIcon">👟</div><strong data-i18n="c3">Mode</strong><small data-i18n="c3s">Kleidung & Accessoires</small></a>
+          <a class="cat" href="#deals" data-category="Lifestyle"><div class="catIcon">✨</div><strong data-i18n="c4">Lifestyle</strong><small data-i18n="c4s">Nützliche Fundstücke</small></a>
+        </div>
+      </section>
+
+      <section id="deals">
+        <div class="sectionHead">
+          <div><h2 data-i18n="dealTitle">Top Deals</h2><p data-i18n="dealSub">Ausgewählte Angebote übersichtlich entdecken.</p></div>
+        </div>
+        <div class="products" id="products"></div>
+      </section>
+
+      <section id="how">
+        <div class="sectionHead"><div><h2 data-i18n="howTitle">So funktioniert Osamixo</h2><p data-i18n="howSub">Einfach entdecken, vergleichen und zum Anbieter weitergehen.</p></div></div>
+        <div class="steps">
+          <article class="step"><div class="num">01</div><h3 data-i18n="s1t">Entdecken</h3><p data-i18n="s1p">Finde interessante Produkte und Angebote auf Osamixo.</p></article>
+          <article class="step"><div class="num">02</div><h3 data-i18n="s2t">Vergleichen</h3><p data-i18n="s2p">Vergleiche Angebote und wähle, was am besten passt.</p></article>
+          <article class="step"><div class="num">03</div><h3 data-i18n="s3t">Beim Anbieter kaufen</h3><p data-i18n="s3p">Der Kauf findet beim jeweiligen Online-Shop statt.</p></article>
+        </div>
+      </section>
+
+      <section>
+        <div class="trust">
+          <div><h2 data-i18n="trustTitle">Unabhängig entdecken.</h2><p data-i18n="trustText">Osamixo ist eine Plattform zur Entdeckung von Produkten und Angeboten. Partner und Affiliate-Links werden schrittweise ergänzt.</p></div>
+          <div class="notice" data-i18n="notice">Hinweis: Ein Händler wird erst als Partner dargestellt, wenn eine echte Verbindung bzw. ein Affiliate-Programm eingerichtet wurde.</div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footerGrid">
+        <div><div class="logo">Osami<span>xo</span></div><p data-i18n="footerText">Produkte und Angebote übersichtlich entdecken.</p></div>
+        <div><strong data-i18n="f1">Navigation</strong><a href="#deals" data-i18n="navDeals">Angebote</a><a href="#categories" data-i18n="navCategories">Kategorien</a><a href="#how" data-i18n="navHow">So funktioniert es</a></div>
+        <div><strong data-i18n="f2">Informationen</strong><a href="#" data-i18n="privacy">Datenschutz</a><a href="#" data-i18n="terms">Nutzungsbedingungen</a><a href="#" data-i18n="contact">Kontakt</a></div>
+      </div>
+      <div class="copy">© 2026 Osamixo · <span data-i18n="copy">Alle Rechte vorbehalten.</span></div>
+    </div>
+  </footer>
+
+<script>
+const translations={
+de:{
+top:"Ausgewählte Produkte · Angebote verschiedener Shops · Einfach entdecken",navDeals:"Angebote",navCategories:"Kategorien",navHow:"So funktioniert es",
+eyebrow:"Auswahl der Woche",heroTitle:"Entdecke Produkte, die sich lohnen.",heroText:"Finde interessante Produkte, Angebote und Deals verschiedener Online-Shops – übersichtlich an einem Ort.",heroBtn:"Angebote entdecken",howBtn:"So funktioniert es",
+search:"Produkte oder Kategorien suchen…",catTitle:"Kategorien",catSub:"Schnell zum Bereich, der dich interessiert.",
+c1:"Elektronik",c1s:"Technik & Zubehör",c2:"Wohnen",c2s:"Praktisches für Zuhause",c3:"Mode",c3s:"Kleidung & Accessoires",c4:"Lifestyle",c4s:"Nützliche Fundstücke",
+dealTitle:"Top Deals",dealSub:"Ausgewählte Angebote übersichtlich entdecken.",howTitle:"So funktioniert Osamixo",howSub:"Einfach entdecken, vergleichen und zum Anbieter weitergehen.",
+s1t:"Entdecken",s1p:"Finde interessante Produkte und Angebote auf Osamixo.",s2t:"Vergleichen",s2p:"Vergleiche Angebote und wähle, was am besten passt.",s3t:"Beim Anbieter kaufen",s3p:"Der Kauf findet beim jeweiligen Online-Shop statt.",
+trustTitle:"Unabhängig entdecken.",trustText:"Osamixo ist eine Plattform zur Entdeckung von Produkten und Angeboten. Partner und Affiliate-Links werden schrittweise ergänzt.",
+notice:"Hinweis: Ein Händler wird erst als Partner dargestellt, wenn eine echte Verbindung bzw. ein Affiliate-Programm eingerichtet wurde.",
+footerText:"Produkte und Angebote übersichtlich entdecken.",f1:"Navigation",f2:"Informationen",privacy:"Datenschutz",terms:"Nutzungsbedingungen",contact:"Kontakt",copy:"Alle Rechte vorbehalten."
+},
+en:{
+top:"Selected products · Offers from different shops · Discover easily",navDeals:"Deals",navCategories:"Categories",navHow:"How it works",
+eyebrow:"Pick of the week",heroTitle:"Discover products worth buying.",heroText:"Find interesting products, offers and deals from different online shops – neatly gathered in one place.",heroBtn:"Discover deals",howBtn:"How it works",
+search:"Search products or categories…",catTitle:"Categories",catSub:"Go straight to what interests you.",
+c1:"Electronics",c1s:"Tech & accessories",c2:"Home",c2s:"Useful things for home",c3:"Fashion",c3s:"Clothing & accessories",c4:"Lifestyle",c4s:"Useful finds",
+dealTitle:"Top Deals",dealSub:"Discover selected offers at a glance.",howTitle:"How Osamixo works",howSub:"Discover, compare and continue to the retailer.",
+s1t:"Discover",s1p:"Find interesting products and offers on Osamixo.",s2t:"Compare",s2p:"Compare offers and choose what fits best.",s3t:"Buy from the retailer",s3p:"The purchase takes place at the respective online shop.",
+trustTitle:"Discover independently.",trustText:"Osamixo is a platform for discovering products and offers. Partners and affiliate links are added step by step.",
+notice:"Note: A retailer is only presented as a partner after a real connection or affiliate program has been established.",
+footerText:"Discover products and offers in one place.",f1:"Navigation",f2:"Information",privacy:"Privacy",terms:"Terms",contact:"Contact",copy:"All rights reserved."
+},
+ar:{
+top:"منتجات مختارة · عروض من متاجر مختلفة · اكتشف بسهولة",navDeals:"العروض",navCategories:"الأقسام",navHow:"كيف يعمل الموقع",
+eyebrow:"اختيارات الأسبوع",heroTitle:"اكتشف منتجات تستحق الشراء.",heroText:"اعثر على منتجات وعروض مميزة من متاجر إلكترونية مختلفة في مكان واحد مرتب وسهل الاستخدام.",heroBtn:"اكتشف العروض",howBtn:"كيف يعمل الموقع",
+search:"ابحث عن منتج أو قسم…",catTitle:"الأقسام",catSub:"انتقل مباشرة إلى المجال الذي يهمك.",
+c1:"الإلكترونيات",c1s:"تقنية وإكسسوارات",c2:"المنزل",c2s:"منتجات مفيدة للمنزل",c3:"الأزياء",c3s:"ملابس وإكسسوارات",c4:"أسلوب الحياة",c4s:"منتجات واكتشافات مفيدة",
+dealTitle:"أفضل العروض",dealSub:"اكتشف العروض المختارة بسهولة.",howTitle:"كيف يعمل Osamixo",howSub:"اكتشف وقارن ثم انتقل إلى المتجر.",
+s1t:"اكتشف",s1p:"اعثر على المنتجات والعروض التي تهمك على Osamixo.",s2t:"قارن",s2p:"قارن بين العروض واختر ما يناسبك.",s3t:"اشترِ من المتجر",s3p:"تتم عملية الشراء في المتجر الإلكتروني الأصلي.",
+trustTitle:"اكتشف باستقلالية.",trustText:"Osamixo منصة لاكتشاف المنتجات والعروض. ستتم إضافة الشركاء وروابط Affiliate تدريجيًا.",
+notice:"ملاحظة: لن نعرض أي متجر كشريك إلا بعد إنشاء ارتباط حقيقي أو برنامج Affiliate فعلي.",
+footerText:"اكتشف المنتجات والعروض في مكان واحد.",f1:"التنقل",f2:"معلومات",privacy:"الخصوصية",terms:"الشروط",contact:"التواصل",copy:"جميع الحقوق محفوظة."
+}};
+const products=[
+{icon:"🎧",cat:"Elektronik",title:{de:"Kompakte Wireless Kopfhörer",en:"Compact wireless headphones",ar:"سماعات لاسلكية مدمجة"},desc:{de:"Praktisches Beispielprodukt",en:"Example product for the layout",ar:"منتج تجريبي لعرض التصميم"},price:"€29,99"},
+{icon:"💡",cat:"Home",title:{de:"Moderne Schreibtischlampe",en:"Modern desk lamp",ar:"مصباح مكتب عصري"},desc:{de:"Minimalistisches Design",en:"Minimal design",ar:"تصميم بسيط وأنيق"},price:"€24,90"},
+{icon:"👟",cat:"Mode",title:{de:"Alltag Sneaker",en:"Everyday sneakers",ar:"حذاء رياضي يومي"},desc:{de:"Bequem & vielseitig",en:"Comfortable & versatile",ar:"مريح ومتعدد الاستخدام"},price:"€49,99"},
+{icon:"⌚",cat:"Lifestyle",title:{de:"Smartwatch",en:"Smartwatch",ar:"ساعة ذكية"},desc:{de:"Beispiel für einen Deal",en:"Example deal card",ar:"مثال على بطاقة عرض"},price:"€39,90"}
+];
+let lang="de";
+function renderProducts(){
+ const q=document.getElementById("search").value.trim().toLowerCase();
+ const root=document.getElementById("products");
+ const list=products.filter(p=>{
+   const t=p.title[lang].toLowerCase(), d=p.desc[lang].toLowerCase();
+   return !q || t.includes(q)||d.includes(q)||p.cat.toLowerCase().includes(q);
+ });
+ root.innerHTML=list.map(p=>`
+ <article class="product">
+   <div class="productImg">${p.icon}</div>
+   <div class="productBody">
+    <span class="badge">${lang==="ar"?"مثال":"Example"}</span>
+    <h3>${p.title[lang]}</h3>
+    <p>${p.desc[lang]}</p>
+    <div class="productBottom"><span class="price">${p.price}</span><button class="buy" onclick="demoClick()">${lang==="ar"?"عرض":"View"}</button></div>
+   </div>
+ </article>`).join("") || `<p style="grid-column:1/-1;color:#687087">${lang==="ar"?"لا توجد نتائج مطابقة.":"No matching results."}</p>`;
+}
+function applyLang(){
+ const t=translations[lang];
+ document.documentElement.lang=lang;
+ document.documentElement.dir=lang==="ar"?"rtl":"ltr";
+ document.querySelectorAll("[data-i18n]").forEach(el=>{const k=el.dataset.i18n;if(t[k])el.textContent=t[k]});
+ document.querySelectorAll("[data-placeholder]").forEach(el=>el.placeholder=t[el.dataset.placeholder]);
+ renderProducts();
+}
+function demoClick(){alert(lang==="ar"?"هذا زر تجريبي. سنضع رابط Affiliate الحقيقي بعد اعتماد البرنامج.":"This is a demo button. A real affiliate link will be added after the program is approved.");}
+document.getElementById("language").addEventListener("change",e=>{lang=e.target.value;applyLang()});
+document.getElementById("search").addEventListener("input",renderProducts);
+document.querySelectorAll("[data-category]").forEach(el=>el.addEventListener("click",()=>{document.getElementById("search").value=el.dataset.category;renderProducts()}));
+applyLang();
+</script>
+</body>
+</html>

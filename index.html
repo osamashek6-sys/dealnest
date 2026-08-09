@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DealNest — اكتشف ما يستحق الشراء</title>
+<meta name="description" content="DealNest — اكتشف منتجات وعروضًا مميزة من متاجر مختلفة.">
+<style>
+:root{--ink:#111216;--muted:#70747d;--line:#e7e7ec;--bg:#f7f7f9;--card:#fff;--accent:#684cff;--green:#148b6a}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,"Noto Sans Arabic",sans-serif;background:var(--bg);color:var(--ink)}
+a{text-decoration:none;color:inherit}.wrap{max-width:1180px;margin:auto;padding:0 20px}
+.top{background:#111216;color:#fff;font-size:12px;padding:9px 0}.top .wrap{display:flex;justify-content:space-between}
+header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}.nav{min-height:74px;display:flex;align-items:center;gap:20px}
+.logo{font-size:27px;font-weight:900;letter-spacing:-1px}.logo span{color:var(--accent)}
+.search{flex:1;max-width:560px}.search input{width:100%;padding:14px 17px;border:1px solid #dddde4;border-radius:13px;background:#fafafd;font-size:15px;outline:0}.search input:focus{border-color:#a99cff}
+.links{display:flex;gap:18px;font-size:14px}.links a:hover{color:var(--accent)}
+.hero{padding:28px 0}.heroBox{min-height:360px;border-radius:28px;padding:50px;display:flex;align-items:center;position:relative;overflow:hidden;color:#fff;background:linear-gradient(120deg,#111216,#28223f 60%,#5e4cd0)}
+.heroBox:after{content:"";position:absolute;width:500px;height:500px;border-radius:50%;left:-130px;bottom:-280px;background:#ffffff14}
+.heroText{max-width:700px;position:relative;z-index:1}.pill{display:inline-block;border:1px solid #ffffff35;background:#ffffff12;padding:8px 12px;border-radius:99px;font-size:12px}
+.hero h1{font-size:46px;line-height:1.1;margin:18px 0 12px;letter-spacing:-1px}.hero p{color:#ddd;line-height:1.8;font-size:17px;max-width:620px}.cta{display:inline-block;background:#fff;color:#111;padding:13px 19px;border-radius:11px;font-weight:800;margin-top:8px}
+section{padding:12px 0 35px}.head{display:flex;justify-content:space-between;align-items:end;margin-bottom:18px}.head h2{margin:0;font-size:25px}.head p{margin:6px 0 0;color:var(--muted);font-size:13px}
+.cats{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}.cat{border:1px solid var(--line);background:#fff;border-radius:16px;padding:18px 8px;font-weight:800;cursor:pointer}.cat.active{background:#111216;color:#fff}.cat i{display:block;font-style:normal;font-size:25px;margin-bottom:7px}
+.toolbar{display:flex;gap:9px;margin-bottom:17px}.filter{background:#fff;border:1px solid var(--line);border-radius:10px;padding:9px 13px;cursor:pointer}.filter.active{background:#111216;color:#fff}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:17px}.card{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:.2s}.card:hover{transform:translateY(-4px);box-shadow:0 16px 35px #00000012}
+.image{position:relative;background:#eee}.pic{width:100%;aspect-ratio:1;object-fit:cover;display:block}.badge{position:absolute;right:10px;top:10px;background:#111216;color:#fff;padding:6px 8px;border-radius:7px;font-size:11px;font-weight:800}.heart{position:absolute;left:10px;top:10px;border:0;background:#fff;border-radius:50%;width:34px;height:34px;font-size:16px;cursor:pointer}
+.body{padding:14px}.store{font-size:11px;color:var(--accent);font-weight:800}.title{font-size:15px;font-weight:800;line-height:1.45;height:43px;margin:7px 0}.rating{font-size:12px;color:#e69b00}.rating span{color:#777}.prices{display:flex;gap:8px;align-items:center;margin-top:9px}.price{font-size:19px;font-weight:900}.old{text-decoration:line-through;color:#999;font-size:12px}.save{margin-right:auto;color:var(--green);background:#e8f7f2;padding:5px 7px;border-radius:6px;font-size:10px;font-weight:800}.buy{display:block;text-align:center;background:#111216;color:#fff;padding:11px;border-radius:10px;margin-top:12px;font-size:13px;font-weight:800}.buy:hover{background:var(--accent)}
+.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:8px auto 45px}.trust div{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px}.trust b{font-size:14px}.trust p{color:var(--muted);font-size:12px;margin:7px 0 0}
+.news{background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px;display:flex;justify-content:space-between;gap:20px;align-items:center;margin-bottom:45px}.news h2{margin:0 0 6px}.news p{margin:0;color:var(--muted);font-size:13px}.email{display:flex;gap:8px}.email input{padding:12px;border:1px solid var(--line);border-radius:10px}.email button{border:0;background:var(--accent);color:#fff;padding:12px 18px;border-radius:10px;font-weight:800}
+footer{background:#111216;color:#fff;padding:38px 0}.foot{display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px}.foot p,.foot a{color:#aaa;font-size:13px;line-height:1.8}.disclosure{border-top:1px solid #2d2e33;margin-top:25px;padding-top:17px;color:#888;font-size:11px;line-height:1.7}.empty{grid-column:1/-1;background:#fff;padding:35px;text-align:center;border:1px dashed #ccc;border-radius:15px}
+@media(max-width:900px){.grid{grid-template-columns:repeat(3,1fr)}.cats{grid-template-columns:repeat(3,1fr)}.foot{grid-template-columns:1fr 1fr}}
+@media(max-width:650px){.top{display:none}.nav{flex-wrap:wrap;padding:12px 0}.links{display:none}.search{order:3;flex-basis:100%;max-width:none}.heroBox{padding:30px 24px;min-height:420px}.hero h1{font-size:34px}.hero p{font-size:15px}.grid{grid-template-columns:repeat(2,1fr);gap:10px}.cats{gap:8px}.cat{padding:13px 5px;font-size:12px}.cat i{font-size:21px}.trust{grid-template-columns:1fr}.news{display:block}.email{margin-top:18px}.email input{flex:1;min-width:0}.foot{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap"><span>مختارات جديدة كل أسبوع ✦</span><b>اكتشف • قارن • تسوّق بذكاء</b></div></div>
+<header><div class="wrap nav"><a class="logo" href="#">Deal<span>Nest</span></a><div class="search"><input id="search" placeholder="ابحث عن منتج أو فئة..."></div><nav class="links"><a href="#deals">العروض</a><a href="#categories">التصنيفات</a></nav></div></header>
+<main>
+<div class="wrap hero"><div class="heroBox"><div class="heroText"><span class="pill">🔥 اختيارات هذا الأسبوع</span><h1>اكتشف منتجات<br>تستحق الشراء.</h1><p>منتجات وعروض مميزة من متاجر مختلفة، مرتبة في تجربة بسيطة وأنيقة تساعدك على اكتشاف ما يستحق اهتمامك.</p><a class="cta" href="#deals">استكشف العروض ←</a></div></div></div>
+<section id="categories"><div class="wrap"><div class="head"><div><h2>تصفح حسب الفئة</h2><p>الوصول السريع إلى ما تبحث عنه</p></div></div><div class="cats" id="cats"></div></div></section>
+<section id="deals"><div class="wrap"><div class="head"><div><h2>🔥 عروض مختارة</h2><p>هذه منتجات تجريبية وسنستبدلها لاحقًا بمنتجات Affiliate حقيقية.</p></div></div><div class="toolbar" id="filters"></div><div class="grid" id="grid"></div></div></section>
+<div class="wrap trust"><div><b>✓ منتجات مختارة</b><p>نركز على المنتجات التي تستحق الاكتشاف.</p></div><div><b>↗ المتجر الأصلي</b><p>الشراء يتم مباشرة لدى المتجر الخارجي.</p></div><div><b>★ اكتشف الجديد</b><p>سنضيف عروضًا ومنتجات جديدة باستمرار.</p></div></div>
+<div class="wrap news"><div><h2>لا تفوّت المنتجات الجديدة</h2><p>قسم تجريبي يمكن ربطه لاحقًا بخدمة بريد إلكتروني.</p></div><form class="email" onsubmit="event.preventDefault();alert('سيتم تفعيل الاشتراك لاحقًا.');"><input type="email" placeholder="بريدك الإلكتروني" required><button>اشتراك</button></form></div>
+</main>
+<footer><div class="wrap foot"><div><div class="logo">Deal<span>Nest</span></div><p>منصة لاكتشاف المنتجات والعروض من متاجر مختلفة.</p></div><div><b>استكشف</b><p><a href="#deals">العروض</a><br><a href="#categories">التصنيفات</a></p></div><div><b>معلومات</b><p>الخصوصية<br>إخلاء المسؤولية<br>تواصل معنا</p></div></div><div class="wrap disclosure">إفصاح: قد تحتوي بعض أزرار المنتجات على روابط تسويق بالعمولة. قد نحصل على عمولة عند إتمام عملية شراء عبر هذه الروابط، دون تكلفة إضافية عليك. الأسعار والصور الحالية تجريبية.</div></footer>
+<script>
+const products=[
+{name:"سماعة لاسلكية Bluetooth",price:"19.99 €",old:"29.99 €",save:"-33%",cat:"إلكترونيات",rating:"4.8",reviews:"124",img:"https://placehold.co/700x700/f0efff/30276d?text=Headphones",url:"https://example.com/affiliate-link-1"},
+{name:"منظم ذكي وأنيق للمكتب",price:"12.49 €",old:"18.90 €",save:"-34%",cat:"المنزل",rating:"4.7",reviews:"89",img:"https://placehold.co/700x700/f5f0e8/61492c?text=Organizer",url:"https://example.com/affiliate-link-2"},
+{name:"إضاءة LED عصرية للمكتب",price:"15.99 €",old:"24.99 €",save:"-36%",cat:"المنزل",rating:"4.6",reviews:"211",img:"https://placehold.co/700x700/eaf6f2/205e4c?text=LED+Light",url:"https://example.com/affiliate-link-3"},
+{name:"إكسسوار عملي للهاتف",price:"8.99 €",old:"13.99 €",save:"-36%",cat:"إكسسوارات",rating:"4.8",reviews:"167",img:"https://placehold.co/700x700/fbecef/702f42?text=Phone",url:"https://example.com/affiliate-link-4"},
+{name:"حامل هاتف للسيارة",price:"10.99 €",old:"16.99 €",save:"-35%",cat:"سيارات",rating:"4.7",reviews:"302",img:"https://placehold.co/700x700/edf2f8/2e4862?text=Car+Holder",url:"https://example.com/affiliate-link-5"},
+{name:"أداة مطبخ متعددة الاستخدام",price:"9.49 €",old:"14.99 €",save:"-37%",cat:"المطبخ",rating:"4.5",reviews:"76",img:"https://placehold.co/700x700/f8f0e7/6c4d2f?text=Kitchen",url:"https://example.com/affiliate-link-6"},
+{name:"مصباح ليلي ذكي",price:"13.99 €",old:"21.99 €",save:"-36%",cat:"إلكترونيات",rating:"4.9",reviews:"91",img:"https://placehold.co/700x700/f1edff/4b3b91?text=Smart+Lamp",url:"https://example.com/affiliate-link-7"},
+{name:"حقيبة تنظيم للسفر",price:"17.50 €",old:"25.00 €",save:"-30%",cat:"سفر",rating:"4.6",reviews:"118",img:"https://placehold.co/700x700/edf6f7/28565b?text=Travel+Bag",url:"https://example.com/affiliate-link-8"}];
+let active="الكل",sort="الكل";const grid=document.getElementById("grid"),cats=document.getElementById("cats"),filters=document.getElementById("filters"),search=document.getElementById("search");
+const icons={الكل:"✦",إلكترونيات:"◉",المنزل:"⌂",إكسسوارات:"◇",سيارات:"⌁",المطبخ:"◌",سفر:"✈"};
+function render(){let all=["الكل",...new Set(products.map(p=>p.cat))];cats.innerHTML=all.map(c=>`<button class="cat ${active===c?"active":""}" onclick="active='${c}';render()"><i>${icons[c]}</i>${c}</button>`).join("");filters.innerHTML=["الكل","الأعلى تقييمًا","الأقل سعرًا"].map(x=>`<button class="filter ${sort===x?"active":""}" onclick="sort='${x}';render()">${x}</button>`).join("");
+let q=search.value.toLowerCase(),list=products.filter(p=>(active==="الكل"||p.cat===active)&&(p.name.toLowerCase().includes(q)||p.cat.toLowerCase().includes(q)));if(sort==="الأعلى تقييمًا")list.sort((a,b)=>b.rating-a.rating);if(sort==="الأقل سعرًا")list.sort((a,b)=>parseFloat(a.price)-parseFloat(b.price));
+grid.innerHTML=list.length?list.map(p=>`<article class="card"><div class="image"><img class="pic" src="${p.img}" alt="${p.name}" loading="lazy"><span class="badge">${p.save}</span><button class="heart" onclick="this.textContent=this.textContent==='♡'?'♥':'♡'">♡</button></div><div class="body"><div class="store">متجر تجريبي</div><div class="title">${p.name}</div><div class="rating">★★★★★ <span>${p.rating} (${p.reviews})</span></div><div class="prices"><b class="price">${p.price}</b><span class="old">${p.old}</span><span class="save">${p.save}</span></div><a class="buy" href="${p.url}" target="_blank" rel="nofollow sponsored noopener">عرض المنتج ↗</a></div></article>`).join(""):'<div class="empty">لم نجد منتجات مطابقة.</div>'}
+search.addEventListener("input",render);render();
+</script>
+</body></html>
